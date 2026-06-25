@@ -7,9 +7,8 @@
     "test": "vitest run --exclude dist/**",
     "seed": "node --loader ts-node/esm prisma/seed.ts",
     "auth:create-admin": "node --loader ts-node/esm src/scripts/create-admin-invite.ts",
-    "build": "rimraf dist && npx tsc",
+    "build": "prisma generate && rimraf dist && tsc",
     "start": "node dist/src/index.js",
-    "prestart": "npm run build",
     "dev": "npm run build && concurrently \"npx tsc -w\" \"node --watch dist/src/index.js\""
   },
   "keywords": [],
